@@ -7,7 +7,7 @@
     android:background="@color/background_green"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".fragments.LoginFragment">
+    tools:context=".fragments.RegOneFragment">
 
 
     <ImageView
@@ -17,78 +17,93 @@
         android:src="@drawable/logo" />
 
     <EditText
-        android:id="@+id/emailEditText"
         android:layout_width="232dp"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/rounded_corner"
         android:ems="10"
-        android:hint="Email"
         android:inputType="text"
-        android:paddingLeft="8dp" />
+        android:paddingLeft="8dp"
+        android:hint ="Название организации" />
 
     <EditText
-        android:id="@+id/innEditText"
         android:layout_width="232dp"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/rounded_corner"
         android:ems="10"
-        android:hint="ИНН"
         android:inputType="text"
-        android:paddingLeft="8dp" />
+        android:paddingLeft="8dp"
+        android:hint ="Код ОКПО" />
+
+
 
     <EditText
-        android:id="@+id/userNameEditText"
         android:layout_width="232dp"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/rounded_corner"
         android:ems="10"
-        android:hint="Имя пользователя"
         android:inputType="text"
-        android:paddingLeft="8dp" />
+        android:paddingLeft="8dp"
+        android:hint ="Регистрационный номер" />
 
     <EditText
-        android:id="@+id/passwordEditText1"
         android:layout_width="232dp"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/rounded_corner"
         android:ems="10"
-        android:hint="Пароль 1"
         android:inputType="text"
-        android:paddingLeft="8dp" />
+        android:paddingLeft="8dp"
+        android:hint ="ФИО руководителя" />
 
     <EditText
-        android:id="@+id/passwordEditText2"
         android:layout_width="232dp"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/rounded_corner"
         android:ems="10"
-        android:hint="Пароль 2"
         android:inputType="text"
-        android:paddingLeft="8dp" />
+        android:paddingLeft="8dp"
+        android:hint="Должность руководителя" />
 
     <EditText
-        android:id="@+id/accountNumberEditText"
         android:layout_width="232dp"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/rounded_corner"
         android:ems="10"
-        android:hint="Номер счета"
         android:inputType="text"
-        android:paddingLeft="8dp" />
+        android:paddingLeft="8dp"
+        android:hint="ФИО доверенного лица" />
+
+    <EditText
+        android:layout_width="232dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_corner"
+        android:ems="10"
+        android:inputType="text"
+        android:paddingLeft="8dp"
+        android:hint="Юридический адрес" />
+
+    <EditText
+        android:layout_width="232dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_corner"
+        android:ems="10"
+        android:inputType="text"
+        android:paddingLeft="8dp"
+        android:hint="Фактический адрес" />
 
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.google.android.material.button.MaterialButton
         android:layout_width="92dp"
         android:layout_height="32dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/button_yellow"
-        android:id="@+id/btn_login_submit"
-        android:text="Далее" />
+        android:text="Регистрация" />
 
 </LinearLayout>
