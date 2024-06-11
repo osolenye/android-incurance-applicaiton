@@ -1,14 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_green"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context=".fragments.RegTwoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="224dp"
+        android:layout_height="124dp"
+        android:src="@drawable/logo" />
+
+    <EditText
+        android:id="@+id/first_name"
+        android:layout_width="232dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_corner"
+        android:ems="10"
+        android:inputType="text"
+        android:paddingLeft="8dp"
+        android:hint="Имя" />
+
+    <EditText
+        android:id="@+id/last_name"
+        android:layout_width="232dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_corner"
+        android:ems="10"
+        android:inputType="text"
+        android:paddingLeft="8dp"
+        android:hint="Фамилия" />
+
+    <EditText
+        android:id="@+id/place_of_birth"
+        android:layout_width="232dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_corner"
+        android:ems="10"
+        android:inputType="text"
+        android:paddingLeft="8dp"
+        android:hint="Место рождения" />
+
+    <EditText
+        android:id="@+id/date_of_birth"
+        android:layout_width="232dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_corner"
+        android:ems="10"
+        android:inputType="text"
+        android:paddingLeft="8dp"
+        android:hint="Дата рождения" />
+
+    <EditText
+        android:id="@+id/passport_number"
+        android:layout_width="232dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_corner"
+        android:ems="10"
+        android:inputType="text"
+        android:paddingLeft="8dp"
+        android:hint="Серия и номер паспорта" />
+
+    <EditText
+        android:id="@+id/issue_date"
+        android:layout_width="232dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_corner"
+        android:ems="10"
+        android:inputType="text"
+        android:paddingLeft="8dp"
+        android:hint="Дата выдачи" />
+
+    <EditText
+        android:id="@+id/expiry_date"
+        android:layout_width="232dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_corner"
+        android:ems="10"
+        android:inputType="text"
+        android:paddingLeft="8dp"
+        android:hint="Дата окончания" />
+
+    <EditText
+        android:id="@+id/account_number"
+        android:layout_width="232dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_corner"
+        android:ems="10"
+        android:inputType="text"
+        android:paddingLeft="8dp"
+        android:hint="Номер счета" />
+
+    <EditText
+        android:id="@+id/registration_address"
+        android:layout_width="232dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_corner"
+        android:ems="10"
+        android:inputType="text"
+        android:paddingLeft="8dp"
+        android:hint="Адрес прописки" />
+
+    <EditText
+        android:id="@+id/residential_address"
+        android:layout_width="232dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_corner"
+        android:ems="10"
+        android:inputType="text"
+        android:paddingLeft="8dp"
+        android:hint="Адрес проживания" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="120dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_yellow"
+        android:id="@+id/btn_reg_two_submit"
+        android:text="Регистрация" />
+
+</LinearLayout>

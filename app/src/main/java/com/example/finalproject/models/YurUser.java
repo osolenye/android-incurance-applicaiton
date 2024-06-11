@@ -13,6 +13,7 @@ public class YurUser {
     private String inn;
     private String userName;
     private String password1;
+    private String accountNumber;
 
     public String getOrgName() {
         return orgName;
@@ -134,5 +135,4 @@ public class YurUser {
         this.accountNumber = accountNumber;
     }
 
-    private String accountNumber;
 }

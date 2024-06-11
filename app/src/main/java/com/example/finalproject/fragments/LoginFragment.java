@@ -118,8 +118,21 @@ public class LoginFragment extends Fragment {
                     Log.e(TAG, "Activity is null");
                 }
             } else {
-                Log.e(TAG, "INN does not start with '0' or is empty");
-                Toast.makeText(getContext(), "Invalid INN", Toast.LENGTH_SHORT).show();
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("userData", userData);
+
+                RegTwoFragment regTwoFragment = new RegTwoFragment();
+                regTwoFragment.setArguments(bundle);
+
+                if (getActivity() != null) {
+                    requireActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.container, regTwoFragment)
+                            .addToBackStack(null)
+                            .commit();
+                    Log.d(TAG, "Fragment replaced successfully");
+                } else {
+                    Log.e(TAG, "Activity is null");
+                }
             }
         } else {
             Log.e(TAG, "Passwords do not match");
