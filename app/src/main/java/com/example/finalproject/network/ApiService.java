@@ -14,6 +14,6 @@ public interface ApiService {
     @POST("register/")
     Call<Void> sendYurUser(@Body YurUser yurUser);
 
-    @POST("your-endpoint")
+    @POST("register/")
     Call<Void> sendPerson(@Body Person person);
 }

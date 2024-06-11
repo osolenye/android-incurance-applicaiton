@@ -123,7 +123,7 @@ public class RegOneFragment extends Fragment {
                         userData.get("email"),
                         userData.get("inn"),
                         userData.get("userName"),
-                        userData.get("password"),
+                        userData.get("password1"),
                         userData.get("accountNumber")
                 );
                 sendYurUserToServer(yurUser);

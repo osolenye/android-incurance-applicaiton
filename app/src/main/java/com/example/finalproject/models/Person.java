@@ -21,8 +21,9 @@ public class Person {
         this.residentialAddress = residentialAddress;
         this.email = email;
         this.inn = inn;
-        this.userName = userName;
-        this.password1 = password1;
+        this.username = userName;
+        this.password = password1;
+        this.password2 = password1;
     }
 
     public String getFirstName() {
@@ -121,21 +122,25 @@ public class Person {
         this.inn = inn;
     }
 
-    public String getUserName() {
-        return userName;
+
+
+
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getPassword1() {
-        return password1;
+    public String getPassword2() {
+        return password2;
     }
 
-    public void setPassword1(String password1) {
-        this.password1 = password1;
+    public void setPassword2(String password2) {
+        this.password2 = password2;
     }
+
 
     private String expiryDate;
     private String accountNumber;
@@ -143,6 +148,7 @@ public class Person {
     private String residentialAddress;
     private String email;
     private String inn;
-    private String userName;
-    private String password1;
+    private String username;
+    private String password;
+    private String password2;
 }
