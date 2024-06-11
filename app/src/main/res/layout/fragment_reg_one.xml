@@ -17,6 +17,7 @@
         android:src="@drawable/logo" />
 
     <EditText
+        android:id="@+id/organization_name"
         android:layout_width="232dp"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
@@ -24,9 +25,10 @@
         android:ems="10"
         android:inputType="text"
         android:paddingLeft="8dp"
-        android:hint ="Название организации" />
+        android:hint="Название организации" />
 
     <EditText
+        android:id="@+id/okpo_code"
         android:layout_width="232dp"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
@@ -34,11 +36,10 @@
         android:ems="10"
         android:inputType="text"
         android:paddingLeft="8dp"
-        android:hint ="Код ОКПО" />
-
-
+        android:hint="Код ОКПО" />
 
     <EditText
+        android:id="@+id/registration_number"
         android:layout_width="232dp"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
@@ -46,9 +47,10 @@
         android:ems="10"
         android:inputType="text"
         android:paddingLeft="8dp"
-        android:hint ="Регистрационный номер" />
+        android:hint="Регистрационный номер" />
 
     <EditText
+        android:id="@+id/leader_name"
         android:layout_width="232dp"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
@@ -56,9 +58,10 @@
         android:ems="10"
         android:inputType="text"
         android:paddingLeft="8dp"
-        android:hint ="ФИО руководителя" />
+        android:hint="ФИО руководителя" />
 
     <EditText
+        android:id="@+id/leader_position"
         android:layout_width="232dp"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
@@ -69,6 +72,7 @@
         android:hint="Должность руководителя" />
 
     <EditText
+        android:id="@+id/representative_name"
         android:layout_width="232dp"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
@@ -79,6 +83,7 @@
         android:hint="ФИО доверенного лица" />
 
     <EditText
+        android:id="@+id/legal_address"
         android:layout_width="232dp"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
@@ -89,6 +94,7 @@
         android:hint="Юридический адрес" />
 
     <EditText
+        android:id="@+id/actual_address"
         android:layout_width="232dp"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
@@ -99,11 +105,12 @@
         android:hint="Фактический адрес" />
 
 
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="92dp"
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="120dp"
         android:layout_height="32dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/button_yellow"
+        android:id="@+id/btn_reg_one_submit"
         android:text="Регистрация" />
 
 </LinearLayout>

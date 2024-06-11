@@ -7,12 +7,20 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.finalproject.R;
 import com.example.finalproject.models.UserData;
+import com.example.finalproject.models.YurUser;
+import com.example.finalproject.network.ApiService;
+import com.example.finalproject.network.RetrofitClient;
 
 import java.util.HashMap;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,6 +42,8 @@ public class RegOneFragment extends Fragment {
         // Required empty public constructor
     }
     private HashMap<String, String> userData;
+    private EditText organizationName, okpoCode, registrationNumber, leaderName, leaderPosition, representativeName, legalAddress, actualAddress;
+
 
 
     /**
@@ -76,6 +86,76 @@ public class RegOneFragment extends Fragment {
                 Toast.makeText(getContext(), userData.toString(), Toast.LENGTH_SHORT).show();
             }
         }
+
+        view.findViewById(R.id.btn_reg_one_submit).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Initialize the EditText fields
+                organizationName = view.findViewById(R.id.organization_name);
+                okpoCode = view.findViewById(R.id.okpo_code);
+                registrationNumber = view.findViewById(R.id.registration_number);
+                leaderName = view.findViewById(R.id.leader_name);
+                leaderPosition = view.findViewById(R.id.leader_position);
+                representativeName = view.findViewById(R.id.representative_name);
+                legalAddress = view.findViewById(R.id.legal_address);
+                actualAddress = view.findViewById(R.id.actual_address);
+
+
+                String orgName = organizationName.getText().toString();
+                String okpo = okpoCode.getText().toString();
+                String regNum = registrationNumber.getText().toString();
+                String leadName = leaderName.getText().toString();
+                String leadPos = leaderPosition.getText().toString();
+                String repName = representativeName.getText().toString();
+                String legalAddr = legalAddress.getText().toString();
+                String actualAddr = actualAddress.getText().toString();
+
+
+                YurUser yurUser = new YurUser(
+                        orgName,
+                        okpo,
+                        regNum,
+                        leadName,
+                        leadPos,
+                        repName,
+                        legalAddr,
+                        actualAddr,
+                        userData.get("email"),
+                        userData.get("inn"),
+                        userData.get("userName"),
+                        userData.get("password"),
+                        userData.get("accountNumber")
+                );
+                sendYurUserToServer(yurUser);
+            }
+        });
+
+
+
         return view;
+    }
+
+
+    private void sendYurUserToServer(YurUser yurUser) {
+        ApiService apiService = RetrofitClient.getClient().create(ApiService.class);
+        Call<Void> call = apiService.sendYurUser(yurUser);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if (response.isSuccessful()) {
+                    // Request successful
+                    Toast.makeText(getContext(), "Data sent successfully", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Request failed
+                    Toast.makeText(getContext(), response.toString(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                // Network error
+                Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }
