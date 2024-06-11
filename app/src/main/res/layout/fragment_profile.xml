@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".fragments.ProfileFragment">
+
+    <LinearLayout
+        android:layout_width="328dp"
+        android:layout_height="80dp"
+        android:background="@drawable/profile_info_background"
+        android:elevation="4dp"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Узбек" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="133713371337" />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/dropdown_open_button"
+        android:layout_width="32dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="146dp"
+        android:layout_marginTop="-10dp"
+        android:background="@drawable/button_dropdown_open"
+        />
+
+    <LinearLayout
+        android:layout_width="323dp"
+        android:layout_height="88dp"
+        android:background="@drawable/container_profile_functions"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:id="@+id/dropdown_content"
+        android:visibility="gone"
+        >
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="16dp"
+            android:background="@color/background_green"
+            android:text="Заполнить заявку на выплту"
+            android:textColor="@color/background_yellow" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="16dp"
+            android:background="@color/background_green"
+            android:text="Мои полисы"
+            android:textColor="@color/background_yellow" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="16dp"
+            android:background="@color/background_green"
+            android:text="Редактировать"
+            android:textColor="@color/background_yellow" />
+    </LinearLayout>
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="323dp"
+        android:layout_height="20dp"
+        android:id="@+id/dropdown_close"
+        android:background="@drawable/button_dropdown_close"
+        android:layout_marginTop="-6dp"
+        android:visibility="gone"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="212dp"
+        android:layout_height="36dp"
+        android:backgroundTint="@color/background_green"
+        app:cornerRadius="12dp"
+        android:text="Обработанные заявки"
+        android:id="@+id/button_processed_requests"
+        android:textColor="@color/background_yellow"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="212dp"
+        android:layout_height="36dp"
+        android:backgroundTint="@color/white"
+        app:strokeColor="@color/black"
+        app:cornerRadius="12dp"
+        android:text="Необработанные заявки"
+        android:id="@+id/button_unprocessed_requests"
+        android:textColor="@color/black"
+        />
+
+
+    <LinearLayout
+        android:layout_width="404dp"
+        android:layout_height="323dp"
+        android:background="@drawable/black_border"
+        android:orientation="vertical"
+        >
+
+
+
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="404dp"-->
+        <!--            android:layout_height="36dp"-->
+        <!--            android:orientation="horizontal">-->
+        <!--            <TextView-->
+        <!--                android:id="@+id/textView3"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:text="TextView" />-->
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/textView5"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:text="TextView" />-->
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/textView4"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:text="TextView" />-->
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/textView6"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:text="TextView" />-->
+        <!--        </LinearLayout>-->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/recyclerView"/>
+    </LinearLayout>
+</LinearLayout>
