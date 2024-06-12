@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_green"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".fragments.AuthFragment">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="224dp"
+        android:layout_height="124dp"
+        android:src="@drawable/logo" />
+
+
+
+
+
+    <EditText
+        android:id="@+id/userNameEditText"
+        android:layout_width="232dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_corner"
+        android:ems="10"
+        android:hint="Имя пользователя"
+        android:inputType="text"
+        android:paddingLeft="8dp" />
+
+    <EditText
+        android:id="@+id/passwordEditText1"
+        android:layout_width="232dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_corner"
+        android:ems="10"
+        android:hint="Пароль"
+        android:inputType="text"
+        android:paddingLeft="8dp" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="92dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_yellow"
+        android:id="@+id/btn_auth_submit"
+        android:text="Далее" />
+
+</LinearLayout>

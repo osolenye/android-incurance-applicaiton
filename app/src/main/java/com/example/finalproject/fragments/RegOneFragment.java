@@ -1,9 +1,11 @@
 package com.example.finalproject.fragments;
 
+
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +30,7 @@ import retrofit2.Response;
  * create an instance of this fragment.
  */
 public class RegOneFragment extends Fragment {
+    private static final String TAG = "reg one fragment";
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -145,6 +148,16 @@ public class RegOneFragment extends Fragment {
                 if (response.isSuccessful()) {
                     // Request successful
                     Toast.makeText(getContext(), "Data sent successfully", Toast.LENGTH_SHORT).show();
+                    AuthFragment authFragment = new AuthFragment();
+                    if (getActivity() != null) {
+                        requireActivity().getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.container, authFragment)
+                                .addToBackStack(null)
+                                .commit();
+                        Log.d(TAG, "Fragment replaced successfully");
+                    } else {
+                        Log.e(TAG, "Activity is null");
+                    }
                 } else {
                     // Request failed
                     Toast.makeText(getContext(), response.toString(), Toast.LENGTH_SHORT).show();

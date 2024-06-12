@@ -16,4 +16,7 @@ public interface ApiService {
 
     @POST("register/")
     Call<Void> sendPerson(@Body Person person);
+
+    @POST("token/")
+    Call<Token> sendAuth(@Body Login login);
 }

@@ -11,9 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.finalproject.R;
 import com.example.finalproject.items.MyAdapter;
+import com.example.finalproject.models.UserData;
 import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
@@ -52,6 +54,7 @@ public class ProfileFragment extends Fragment {
         // Required empty public constructor
     }
 
+    private String accessToken;
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -89,6 +92,10 @@ public class ProfileFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
+        if (getArguments() != null) {
+            accessToken = (String) getArguments().getSerializable("accessToken");
+            Toast.makeText(getContext(), accessToken, Toast.LENGTH_SHORT).show();
+        }
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
