@@ -12,11 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.finalproject.R;
 
 import java.util.List;
+import java.util.Map;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
-    private List<String> dataSet;
+    private List<Map<String, Object>> dataSet;
 
-    public MyAdapter(List<String> dataSet) {
+    public MyAdapter(List<Map<String, Object>> dataSet) {
         this.dataSet = dataSet;
     }
 
@@ -45,10 +46,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         // Предположим, что dataSet содержит данные для каждого TextView
-        holder.textView1.setText(dataSet.get(position));
-        holder.textView2.setText(dataSet.get(position));
-        holder.textView3.setText(dataSet.get(position));
-        holder.textView4.setText(dataSet.get(position));
+        holder.textView1.setText(dataSet.get(position).get("id").toString());
+        holder.textView2.setText(dataSet.get(position).get("name").toString());
+        holder.textView3.setText(dataSet.get(position).get("start_date").toString());
+        holder.textView4.setText(dataSet.get(position).get("end_date").toString());
     }
 
     @Override

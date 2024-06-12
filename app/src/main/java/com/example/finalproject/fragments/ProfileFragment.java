@@ -115,12 +115,12 @@ public class ProfileFragment extends Fragment {
 
 
 
-        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+        recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        List<String> data = Arrays.asList("Item 1", "Item 2", "Item 3"); // Пример данных
-        MyAdapter adapter = new MyAdapter(data);
-        recyclerView.setAdapter(adapter);
+//        List<String> data = Arrays.asList("Item 1", "Item 2", "Item 3"); // Пример данных
+//        MyAdapter adapter = new MyAdapter(data);
+//        recyclerView.setAdapter(adapter);
 
         dropdown_open = view.findViewById(R.id.dropdown_open_button);
         dropdown_content = view.findViewById(R.id.dropdown_content);
@@ -206,6 +206,11 @@ public class ProfileFragment extends Fragment {
 
                     username.setText(user.get("username").toString());
                     userInn.setText(user.get("inn").toString());
+
+//                    List<String> data = Arrays.asList("Item 1", "Item 2", "Item 3"); // Пример данных
+                    List<Map<String, Object>> data = policies;
+                    MyAdapter adapter = new MyAdapter(data);
+                    recyclerView.setAdapter(adapter);
                 } else {
                     // Request failed
                     Toast.makeText(getContext(), "Request failed: " + response.message(), Toast.LENGTH_SHORT).show();
