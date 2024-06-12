@@ -6,8 +6,12 @@ import com.example.finalproject.models.Token;
 import com.example.finalproject.models.YurUser;
 
 
+import java.util.Map;
+
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 
 public interface ApiService {
@@ -19,4 +23,7 @@ public interface ApiService {
 
     @POST("token/")
     Call<Token> sendAuth(@Body Login login);
+
+    @GET("profile/")
+    Call<Map<String, Object>> getProfile(@Header("Authorization") String token);
 }

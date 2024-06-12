@@ -11,16 +11,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.finalproject.R;
 import com.example.finalproject.items.MyAdapter;
 import com.example.finalproject.models.UserData;
+import com.example.finalproject.network.ApiService;
+import com.example.finalproject.network.RetrofitClient;
 import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -54,6 +62,9 @@ public class ProfileFragment extends Fragment {
         // Required empty public constructor
     }
 
+    private Map<String, Object> user;
+    private List<Map<String, Object>> policies;
+    private TextView username, userInn;
     private String accessToken;
     /**
      * Use this factory method to create a new instance of
@@ -96,6 +107,13 @@ public class ProfileFragment extends Fragment {
             accessToken = (String) getArguments().getSerializable("accessToken");
             Toast.makeText(getContext(), accessToken, Toast.LENGTH_SHORT).show();
         }
+        getProfileData(accessToken);
+
+
+        username = view.findViewById(R.id.profile_username);
+        userInn = view.findViewById(R.id.profile_user_inn);
+
+
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -169,4 +187,36 @@ public class ProfileFragment extends Fragment {
         button.setTextColor(getResources().getColor(R.color.black));
     }
 
+
+
+    private void getProfileData(String accessToken) {
+        ApiService apiService = RetrofitClient.getClient().create(ApiService.class);
+        Call<Map<String, Object>> call = apiService.getProfile("Bearer " + accessToken);
+        call.enqueue(new Callback<Map<String, Object>>() {
+            @Override
+            public void onResponse(Call<Map<String, Object>> call, Response<Map<String, Object>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    // Request successful and response is not null
+                    Map<String, Object> profileResponse = response.body();
+
+                    // Get user data
+                    user = (Map<String, Object>) profileResponse.get("user");
+                    // Get policies data
+                    policies = (List<Map<String, Object>>) profileResponse.get("policies");
+
+                    username.setText(user.get("username").toString());
+                    userInn.setText(user.get("inn").toString());
+                } else {
+                    // Request failed
+                    Toast.makeText(getContext(), "Request failed: " + response.message(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Map<String, Object>> call, Throwable t) {
+                // Network error
+                Toast.makeText(getContext(), "Network error: " + t.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+    }
 }
