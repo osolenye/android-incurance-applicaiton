@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".items.CompaniesActivityActivity"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <Spinner
+        android:layout_width="328dp"
+        android:layout_height="36dp"
+        android:id="@+id/companies_spinner"
+        android:background="@drawable/button_company_info"
+        />
+
+</LinearLayout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".fragments.RequestOptionFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_bold"
+        android:textSize="24dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="240dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="64dp"
+        android:background="@color/background_yellow"
+        android:id="@+id/btn_request_option_vzr"
+        android:text="Заявки на выплату ВЗР" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="240dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/background_yellow"
+        android:id="@+id/btn_request_option_dms"
+        android:text="Заявки на выплату ДМС" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="240dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/background_yellow"
+        android:id="@+id/btn_request_option_cargo"
+        android:text="Заявки на выплату. Грузы" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="240dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/background_yellow"
+        android:id="@+id/btn_request_option_auto_insurance"
+        android:text="Заявки на выплату. Автострахование" />
+</LinearLayout>

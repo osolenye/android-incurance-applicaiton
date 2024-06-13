@@ -37,4 +37,19 @@
         android:name="com.example.finalproject.fragments.AuthFragment"
         android:label="fragment_auth"
         tools:layout="@layout/fragment_auth" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.finalproject.fragments.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/companiesFragment"
+        android:name="com.example.finalproject.fragments.CompaniesFragment"
+        android:label="fragment_companies"
+        tools:layout="@layout/fragment_companies" />
+    <fragment
+        android:id="@+id/requestOptionFragment"
+        android:name="com.example.finalproject.fragments.RequestOptionFragment"
+        android:label="fragment_request_option"
+        tools:layout="@layout/fragment_request_option" />
 </navigation>
