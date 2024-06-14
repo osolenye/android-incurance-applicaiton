@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".fragments.PolicyBuyFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Покупка полисов"
+        android:textSize="24dp"
+        android:textStyle="bold" />
+
+
+    <LinearLayout
+        android:layout_width="324dp"
+        android:layout_height="112dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/black_border"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_accident" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="196dp"
+                android:layout_height="32dp"
+                android:background="@drawable/button_yellow"
+                android:text="Несчастный случай"
+                android:textSize="16dp"
+                android:id="@+id/policy_buy_accident"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="220dp"
+                android:layout_height="40dp"
+                android:text="Текст Криптогра́фия — наука о методах обеспечения ввапатьбг"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="323dp"
+        android:layout_height="112dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/black_border"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_car_insurance" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="196dp"
+                android:layout_height="32dp"
+                android:background="@drawable/button_yellow"
+                android:text="Автострахование"
+                android:textSize="16dp"
+                android:id="@+id/policy_buy_auto_insurance"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="220dp"
+                android:layout_height="40dp"
+                android:text="Текст Криптогра́фия — наука о методах обеспечения ввапатьбг" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="323dp"
+        android:layout_height="112dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/black_border"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_medical_insurance" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="196dp"
+                android:layout_height="32dp"
+                android:background="@drawable/button_yellow"
+                android:text="Мед. страхование"
+                android:id="@+id/policy_buy_med_insurance"
+                android:textSize="16dp"
+
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="220dp"
+                android:layout_height="40dp"
+                android:text="Текст Криптогра́фия — наука о методах обеспечения ввапатьбг"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="323dp"
+        android:layout_height="112dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/black_border"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_car_insurance" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="196dp"
+                android:layout_height="32dp"
+                android:background="@drawable/button_yellow"
+                android:text="Страхование грузов"
+                android:textSize="16dp"
+                android:id="@+id/policy_buy_cargo_insurance"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="220dp"
+                android:layout_height="40dp"
+                android:text="Текст Криптогра́фия — наука о методах обеспечения ввапатьбг"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="323dp"
+        android:layout_height="112dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/black_border"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_vzr_insurance" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="196dp"
+                android:layout_height="32dp"
+                android:background="@drawable/button_yellow"
+                android:text="Выезд за границу"
+                android:textSize="16dp"
+                android:id="@+id/policy_buy_vzr"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="220dp"
+                android:layout_height="40dp"
+                android:text="Текст Криптогра́фия — наука о методах обеспечения ввапатьбг"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

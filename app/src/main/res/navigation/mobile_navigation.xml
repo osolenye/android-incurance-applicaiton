@@ -52,4 +52,14 @@
         android:name="com.example.finalproject.fragments.RequestOptionFragment"
         android:label="fragment_request_option"
         tools:layout="@layout/fragment_request_option" />
+    <fragment
+        android:id="@+id/buyDmsFragment"
+        android:name="com.example.finalproject.fragments.BuyDmsFragment"
+        android:label="fragment_buy_dms"
+        tools:layout="@layout/fragment_buy_dms" />
+    <fragment
+        android:id="@+id/policyBuyFragment"
+        android:name="com.example.finalproject.fragments.PolicyBuyFragment"
+        android:label="fragment_policy_buy"
+        tools:layout="@layout/fragment_policy_buy" />
 </navigation>
