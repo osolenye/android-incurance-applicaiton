@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import com.example.finalproject.R;
  * create an instance of this fragment.
  */
 public class RequestOptionFragment extends Fragment {
+    private static final String TAG = "request option fragment";
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,8 +63,7 @@ public class RequestOptionFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_request_option, container, false);
 
@@ -74,25 +75,57 @@ public class RequestOptionFragment extends Fragment {
         btn_vzr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Create a new instance of SecondFragment
+                VzrRequestFragment vzrRequestFragment = new VzrRequestFragment();
 
+                if (getActivity() != null) {
+                    requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, vzrRequestFragment).addToBackStack(null).commit();
+                    Log.d(TAG, "Fragment replaced successfully");
+                } else {
+                    Log.e(TAG, "Activity is null");
+                }
             }
         });
         btn_dms.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Create a new instance of SecondFragment
+                BuyDmsFragment buyDmsFragment = new BuyDmsFragment();
 
+                if (getActivity() != null) {
+                    requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, buyDmsFragment).addToBackStack(null).commit();
+                    Log.d(TAG, "Fragment replaced successfully");
+                } else {
+                    Log.e(TAG, "Activity is null");
+                }
             }
         });
         btn_cargo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Create a new instance of SecondFragment
+                CargoRequestFragment cargoRequestFragment = new CargoRequestFragment();
 
+                if (getActivity() != null) {
+                    requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, cargoRequestFragment).addToBackStack(null).commit();
+                    Log.d(TAG, "Fragment replaced successfully");
+                } else {
+                    Log.e(TAG, "Activity is null");
+                }
             }
         });
         btn_auto_insurance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Create a new instance of SecondFragment
+                CargoRequestFragment cargoRequestFragment = new CargoRequestFragment();
 
+                if (getActivity() != null) {
+                    requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, cargoRequestFragment).addToBackStack(null).commit();
+                    Log.d(TAG, "Fragment replaced successfully");
+                } else {
+                    Log.e(TAG, "Activity is null");
+                }
             }
         });
 
