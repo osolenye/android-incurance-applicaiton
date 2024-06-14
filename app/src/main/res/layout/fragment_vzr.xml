@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragments.VzrFragment">
+
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Выезд за границу"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:textStyle="bold"
+        android:textSize="24dp"
+        />
+
+    <LinearLayout
+        android:layout_width="323dp"
+        android:layout_height="420dp"
+        android:background="@color/background_green"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginTop="32dp"
+            >
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="144dp"
+                android:layout_height="36dp"
+                android:background="@drawable/profile_info_background"
+                android:ems="10"
+                android:hint="Дата начала"
+                android:inputType="date"
+                />
+
+            <EditText
+                android:id="@+id/editText3"
+                android:layout_width="144dp"
+                android:layout_height="36dp"
+                android:background="@drawable/profile_info_background"
+                android:ems="10"
+                android:hint="Дата конца"
+                android:inputType="date"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <Spinner
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/profile_info_background"
+                android:minWidth="112dp"
+                android:minHeight="36dp"
+                android:id="@+id/spinner_trip_goal"
+                />
+            <Spinner
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/profile_info_background"
+                android:minWidth="112dp"
+                android:minHeight="36dp"
+                android:id="@+id/spinner_territory"
+                />
+        </LinearLayout>
+
+
+
+
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="120dp"
+            android:layout_height="32dp"
+            android:background="@drawable/button_yellow"
+            android:text="Далее"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:layout_marginTop="250dp"
+            />
+    </LinearLayout>
+
+
+</LinearLayout>

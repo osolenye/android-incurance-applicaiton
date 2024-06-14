@@ -77,19 +77,36 @@ public class PolicyBuyFragment extends Fragment {
         btnAccident.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Create a new instance of SecondFragment
+                AccidentInsuranceFragment accidentInsuranceFragment = new AccidentInsuranceFragment();
 
+                if (getActivity() != null) {
+                    requireActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.container, accidentInsuranceFragment)
+                            .addToBackStack(null)
+                            .commit();
+                    Log.d(TAG, "Fragment replaced successfully");
+                } else {
+                    Log.e(TAG, "Activity is null");
+                }
             }
         });
         btnAutoInsurance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-            }
-        });
-        btnMedInsurance.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                // Create a new instance of SecondFragment
+                AutoInsuranceFragment autoInsuranceFragment = new AutoInsuranceFragment();
 
+                if (getActivity() != null) {
+                    requireActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.container, autoInsuranceFragment)
+                            .addToBackStack(null)
+                            .commit();
+                    Log.d(TAG, "Fragment replaced successfully");
+                } else {
+                    Log.e(TAG, "Activity is null");
+                }
             }
         });
         btnMedInsurance.setOnClickListener(new View.OnClickListener() {
@@ -112,13 +129,33 @@ public class PolicyBuyFragment extends Fragment {
         btnCargoInsurance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                CargoInsuranceFragment cargoInsuranceFragment = new CargoInsuranceFragment();
 
+                if (getActivity() != null) {
+                    requireActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.container, cargoInsuranceFragment)
+                            .addToBackStack(null)
+                            .commit();
+                    Log.d(TAG, "Fragment replaced successfully");
+                } else {
+                    Log.e(TAG, "Activity is null");
+                }
             }
         });
         btnVzr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                VzrFragment vzrFragment = new VzrFragment();
 
+                if (getActivity() != null) {
+                    requireActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.container, vzrFragment)
+                            .addToBackStack(null)
+                            .commit();
+                    Log.d(TAG, "Fragment replaced successfully");
+                } else {
+                    Log.e(TAG, "Activity is null");
+                }
             }
         });
 
