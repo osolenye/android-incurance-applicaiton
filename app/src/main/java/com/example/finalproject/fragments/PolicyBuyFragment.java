@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -78,17 +80,19 @@ public class PolicyBuyFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // Create a new instance of SecondFragment
-                AccidentInsuranceFragment accidentInsuranceFragment = new AccidentInsuranceFragment();
-
-                if (getActivity() != null) {
-                    requireActivity().getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.container, accidentInsuranceFragment)
-                            .addToBackStack(null)
-                            .commit();
-                    Log.d(TAG, "Fragment replaced successfully");
-                } else {
-                    Log.e(TAG, "Activity is null");
-                }
+//                AccidentInsuranceFragment accidentInsuranceFragment = new AccidentInsuranceFragment();
+//
+//                if (getActivity() != null) {
+//                    requireActivity().getSupportFragmentManager().beginTransaction()
+//                            .replace(R.id.container, accidentInsuranceFragment)
+//                            .addToBackStack(null)
+//                            .commit();
+//                    Log.d(TAG, "Fragment replaced successfully");
+//                } else {
+//                    Log.e(TAG, "Activity is null");
+//                }
+                NavController navController = Navigation.findNavController(v);
+                navController.navigate(R.id.action_policyBuyFragment_to_accidentInsuranceFragment);
             }
         });
         btnAutoInsurance.setOnClickListener(new View.OnClickListener() {
@@ -96,66 +100,74 @@ public class PolicyBuyFragment extends Fragment {
             public void onClick(View v) {
 
                 // Create a new instance of SecondFragment
-                AutoInsuranceFragment autoInsuranceFragment = new AutoInsuranceFragment();
-
-                if (getActivity() != null) {
-                    requireActivity().getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.container, autoInsuranceFragment)
-                            .addToBackStack(null)
-                            .commit();
-                    Log.d(TAG, "Fragment replaced successfully");
-                } else {
-                    Log.e(TAG, "Activity is null");
-                }
+//                AutoInsuranceFragment autoInsuranceFragment = new AutoInsuranceFragment();
+//
+//                if (getActivity() != null) {
+//                    requireActivity().getSupportFragmentManager().beginTransaction()
+//                            .replace(R.id.container, autoInsuranceFragment)
+//                            .addToBackStack(null)
+//                            .commit();
+//                    Log.d(TAG, "Fragment replaced successfully");
+//                } else {
+//                    Log.e(TAG, "Activity is null");
+//                }
+                NavController navController = Navigation.findNavController(v);
+                navController.navigate(R.id.action_policyBuyFragment_to_autoInsuranceFragment);
             }
         });
         btnMedInsurance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Create a new instance of SecondFragment
-                BuyDmsFragment buyDmsFragment = new BuyDmsFragment();
-
-                if (getActivity() != null) {
-                    requireActivity().getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.container, buyDmsFragment)
-                            .addToBackStack(null)
-                            .commit();
-                    Log.d(TAG, "Fragment replaced successfully");
-                } else {
-                    Log.e(TAG, "Activity is null");
-                }
+//                BuyDmsFragment buyDmsFragment = new BuyDmsFragment();
+//
+//                if (getActivity() != null) {
+//                    requireActivity().getSupportFragmentManager().beginTransaction()
+//                            .replace(R.id.container, buyDmsFragment)
+//                            .addToBackStack(null)
+//                            .commit();
+//                    Log.d(TAG, "Fragment replaced successfully");
+//                } else {
+//                    Log.e(TAG, "Activity is null");
+//                }
+                NavController navController = Navigation.findNavController(v);
+                navController.navigate(R.id.action_policyBuyFragment_to_buyDmsFragment);
             }
         });
         btnCargoInsurance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CargoInsuranceFragment cargoInsuranceFragment = new CargoInsuranceFragment();
-
-                if (getActivity() != null) {
-                    requireActivity().getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.container, cargoInsuranceFragment)
-                            .addToBackStack(null)
-                            .commit();
-                    Log.d(TAG, "Fragment replaced successfully");
-                } else {
-                    Log.e(TAG, "Activity is null");
-                }
+//                CargoInsuranceFragment cargoInsuranceFragment = new CargoInsuranceFragment();
+//
+//                if (getActivity() != null) {
+//                    requireActivity().getSupportFragmentManager().beginTransaction()
+//                            .replace(R.id.container, cargoInsuranceFragment)
+//                            .addToBackStack(null)
+//                            .commit();
+//                    Log.d(TAG, "Fragment replaced successfully");
+//                } else {
+//                    Log.e(TAG, "Activity is null");
+//                }
+                NavController navController = Navigation.findNavController(v);
+                navController.navigate(R.id.action_policyBuyFragment_to_cargoInsuranceFragment);
             }
         });
         btnVzr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                VzrFragment vzrFragment = new VzrFragment();
-
-                if (getActivity() != null) {
-                    requireActivity().getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.container, vzrFragment)
-                            .addToBackStack(null)
-                            .commit();
-                    Log.d(TAG, "Fragment replaced successfully");
-                } else {
-                    Log.e(TAG, "Activity is null");
-                }
+//                VzrFragment vzrFragment = new VzrFragment();
+//
+//                if (getActivity() != null) {
+//                    requireActivity().getSupportFragmentManager().beginTransaction()
+//                            .replace(R.id.container, vzrFragment)
+//                            .addToBackStack(null)
+//                            .commit();
+//                    Log.d(TAG, "Fragment replaced successfully");
+//                } else {
+//                    Log.e(TAG, "Activity is null");
+//                }
+                NavController navController = Navigation.findNavController(v);
+                navController.navigate(R.id.action_policyBuyFragment_to_vzrFragment);
             }
         });
 

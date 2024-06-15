@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -47,6 +49,7 @@ public class AuthFragment extends Fragment {
         // Required empty public constructor
     }
 
+    NavController navController;
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -93,6 +96,7 @@ public class AuthFragment extends Fragment {
 
                 Login login = new Login(userNameString, passwordString);
 
+                navController = Navigation.findNavController(v);
                 sendAuth(login);
             }
         });
@@ -114,18 +118,19 @@ public class AuthFragment extends Fragment {
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("accessToken", token.getAccessToken());
 
-                    ProfileFragment profileFragment = new ProfileFragment();
-                    profileFragment.setArguments(bundle);
-
-                    if (getActivity() != null) {
-                        requireActivity().getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.container, profileFragment)
-                                .addToBackStack(null)
-                                .commit();
-                        Log.d(TAG, "Fragment replaced successfully");
-                    } else {
-                        Log.e(TAG, "Activity is null");
-                    }
+//                    ProfileFragment profileFragment = new ProfileFragment();
+//                    profileFragment.setArguments(bundle);
+//
+//                    if (getActivity() != null) {
+//                        requireActivity().getSupportFragmentManager().beginTransaction()
+//                                .replace(R.id.container, profileFragment)
+//                                .addToBackStack(null)
+//                                .commit();
+//                        Log.d(TAG, "Fragment replaced successfully");
+//                    } else {
+//                        Log.e(TAG, "Activity is null");
+//                    }
+                    navController.navigate(R.id.action_authFragment_to_profileFragment, bundle);
                 } else {
                     // Request failed
                     Toast.makeText(getContext(), response.toString(), Toast.LENGTH_SHORT).show();

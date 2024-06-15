@@ -53,6 +53,9 @@
         <action
             android:id="@+id/action_authFragment_to_regOneFragment"
             app:destination="@id/regOneFragment" />
+        <action
+            android:id="@+id/action_authFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
@@ -95,17 +98,41 @@
         android:id="@+id/policyBuyFragment"
         android:name="com.example.finalproject.fragments.PolicyBuyFragment"
         android:label="fragment_policy_buy"
-        tools:layout="@layout/fragment_policy_buy" />
+        tools:layout="@layout/fragment_policy_buy" >
+        <action
+            android:id="@+id/action_policyBuyFragment_to_buyDmsFragment"
+            app:destination="@id/buyDmsFragment" />
+        <action
+            android:id="@+id/action_policyBuyFragment_to_accidentInsuranceFragment"
+            app:destination="@id/accidentInsuranceFragment" />
+        <action
+            android:id="@+id/action_policyBuyFragment_to_autoInsuranceFragment"
+            app:destination="@id/autoInsuranceFragment" />
+        <action
+            android:id="@+id/action_policyBuyFragment_to_cargoInsuranceFragment"
+            app:destination="@id/cargoInsuranceFragment" />
+        <action
+            android:id="@+id/action_policyBuyFragment_to_vzrFragment"
+            app:destination="@id/vzrFragment" />
+    </fragment>
     <fragment
         android:id="@+id/accidentInsuranceFragment"
         android:name="com.example.finalproject.fragments.AccidentInsuranceFragment"
         android:label="fragment_accident_insurance"
-        tools:layout="@layout/fragment_accident_insurance" />
+        tools:layout="@layout/fragment_accident_insurance" >
+        <action
+            android:id="@+id/action_accidentInsuranceFragment_to_policyBuyFragment"
+            app:destination="@id/policyBuyFragment" />
+    </fragment>
     <fragment
         android:id="@+id/autoInsuranceFragment"
         android:name="com.example.finalproject.fragments.AutoInsuranceFragment"
         android:label="fragment_auto_insurance"
-        tools:layout="@layout/fragment_auto_insurance" />
+        tools:layout="@layout/fragment_auto_insurance" >
+        <action
+            android:id="@+id/action_autoInsuranceFragment_to_policyBuyFragment"
+            app:destination="@id/policyBuyFragment" />
+    </fragment>
     <fragment
         android:id="@+id/autoRequestFragment"
         android:name="com.example.finalproject.fragments.AutoRequestFragment"
@@ -119,7 +146,11 @@
         android:id="@+id/cargoInsuranceFragment"
         android:name="com.example.finalproject.fragments.CargoInsuranceFragment"
         android:label="fragment_cargo_insurance"
-        tools:layout="@layout/fragment_cargo_insurance" />
+        tools:layout="@layout/fragment_cargo_insurance" >
+        <action
+            android:id="@+id/action_cargoInsuranceFragment_to_policyBuyFragment"
+            app:destination="@id/policyBuyFragment" />
+    </fragment>
     <fragment
         android:id="@+id/cargoRequestFragment"
         android:name="com.example.finalproject.fragments.CargoRequestFragment"
@@ -157,7 +188,11 @@
         android:id="@+id/vzrFragment"
         android:name="com.example.finalproject.fragments.VzrFragment"
         android:label="fragment_vzr"
-        tools:layout="@layout/fragment_vzr" />
+        tools:layout="@layout/fragment_vzr" >
+        <action
+            android:id="@+id/action_vzrFragment_to_policyBuyFragment"
+            app:destination="@id/policyBuyFragment" />
+    </fragment>
     <fragment
         android:id="@+id/vzrRequestFragment"
         android:name="com.example.finalproject.fragments.VzrRequestFragment"
