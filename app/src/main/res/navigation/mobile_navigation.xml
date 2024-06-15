@@ -26,7 +26,17 @@
         android:id="@+id/loginFragment"
         android:name="com.example.finalproject.fragments.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_regTwoFragment"
+            app:destination="@id/regTwoFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_regOneFragment"
+            app:destination="@id/regOneFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_authFragment"
+            app:destination="@id/authFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.finalproject.fragments.ProfileFragment"
@@ -36,7 +46,14 @@
         android:id="@+id/authFragment"
         android:name="com.example.finalproject.fragments.AuthFragment"
         android:label="fragment_auth"
-        tools:layout="@layout/fragment_auth" />
+        tools:layout="@layout/fragment_auth" >
+        <action
+            android:id="@+id/action_authFragment_to_regTwoFragment"
+            app:destination="@id/regTwoFragment" />
+        <action
+            android:id="@+id/action_authFragment_to_regOneFragment"
+            app:destination="@id/regOneFragment" />
+    </fragment>
     <fragment
         android:id="@+id/aboutFragment"
         android:name="com.example.finalproject.fragments.AboutFragment"
@@ -51,15 +68,108 @@
         android:id="@+id/requestOptionFragment"
         android:name="com.example.finalproject.fragments.RequestOptionFragment"
         android:label="fragment_request_option"
-        tools:layout="@layout/fragment_request_option" />
+        tools:layout="@layout/fragment_request_option" >
+        <action
+            android:id="@+id/action_requestOptionFragment_to_vzrRequestFragment"
+            app:destination="@id/vzrRequestFragment" />
+        <action
+            android:id="@+id/action_requestOptionFragment_to_buyDmsFragment"
+            app:destination="@id/buyDmsFragment" />
+        <action
+            android:id="@+id/action_requestOptionFragment_to_cargoRequestFragment"
+            app:destination="@id/cargoRequestFragment" />
+        <action
+            android:id="@+id/action_requestOptionFragment_to_autoRequestFragment"
+            app:destination="@id/autoRequestFragment" />
+    </fragment>
     <fragment
         android:id="@+id/buyDmsFragment"
         android:name="com.example.finalproject.fragments.BuyDmsFragment"
         android:label="fragment_buy_dms"
-        tools:layout="@layout/fragment_buy_dms" />
+        tools:layout="@layout/fragment_buy_dms" >
+        <action
+            android:id="@+id/action_buyDmsFragment_to_requestOptionFragment"
+            app:destination="@id/requestOptionFragment" />
+    </fragment>
     <fragment
         android:id="@+id/policyBuyFragment"
         android:name="com.example.finalproject.fragments.PolicyBuyFragment"
         android:label="fragment_policy_buy"
         tools:layout="@layout/fragment_policy_buy" />
+    <fragment
+        android:id="@+id/accidentInsuranceFragment"
+        android:name="com.example.finalproject.fragments.AccidentInsuranceFragment"
+        android:label="fragment_accident_insurance"
+        tools:layout="@layout/fragment_accident_insurance" />
+    <fragment
+        android:id="@+id/autoInsuranceFragment"
+        android:name="com.example.finalproject.fragments.AutoInsuranceFragment"
+        android:label="fragment_auto_insurance"
+        tools:layout="@layout/fragment_auto_insurance" />
+    <fragment
+        android:id="@+id/autoRequestFragment"
+        android:name="com.example.finalproject.fragments.AutoRequestFragment"
+        android:label="fragment_auto_request"
+        tools:layout="@layout/fragment_auto_request" >
+        <action
+            android:id="@+id/action_autoRequestFragment_to_requestOptionFragment"
+            app:destination="@id/requestOptionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cargoInsuranceFragment"
+        android:name="com.example.finalproject.fragments.CargoInsuranceFragment"
+        android:label="fragment_cargo_insurance"
+        tools:layout="@layout/fragment_cargo_insurance" />
+    <fragment
+        android:id="@+id/cargoRequestFragment"
+        android:name="com.example.finalproject.fragments.CargoRequestFragment"
+        android:label="fragment_cargo_request"
+        tools:layout="@layout/fragment_cargo_request" >
+        <action
+            android:id="@+id/action_cargoRequestFragment_to_requestOptionFragment"
+            app:destination="@id/requestOptionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/regOneFragment"
+        android:name="com.example.finalproject.fragments.RegOneFragment"
+        android:label="fragment_reg_one"
+        tools:layout="@layout/fragment_reg_one" >
+        <action
+            android:id="@+id/action_regOneFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_regOneFragment_to_authFragment"
+            app:destination="@id/authFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/regTwoFragment"
+        android:name="com.example.finalproject.fragments.RegTwoFragment"
+        android:label="fragment_reg_two"
+        tools:layout="@layout/fragment_reg_two" >
+        <action
+            android:id="@+id/action_regTwoFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_regTwoFragment_to_authFragment"
+            app:destination="@id/authFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/vzrFragment"
+        android:name="com.example.finalproject.fragments.VzrFragment"
+        android:label="fragment_vzr"
+        tools:layout="@layout/fragment_vzr" />
+    <fragment
+        android:id="@+id/vzrRequestFragment"
+        android:name="com.example.finalproject.fragments.VzrRequestFragment"
+        android:label="fragment_vzr_request"
+        tools:layout="@layout/fragment_vzr_request" >
+        <action
+            android:id="@+id/action_vzrRequestFragment_to_requestOptionFragment"
+            app:destination="@id/requestOptionFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/companiesActivityActivity"
+        android:name="com.example.finalproject.items.CompaniesActivityActivity"
+        android:label="activity_companies_activity"
+        tools:layout="@layout/activity_companies_activity" />
 </navigation>

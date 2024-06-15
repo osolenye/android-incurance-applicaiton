@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -76,56 +78,64 @@ public class RequestOptionFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // Create a new instance of SecondFragment
-                VzrRequestFragment vzrRequestFragment = new VzrRequestFragment();
-
-                if (getActivity() != null) {
-                    requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, vzrRequestFragment).addToBackStack(null).commit();
-                    Log.d(TAG, "Fragment replaced successfully");
-                } else {
-                    Log.e(TAG, "Activity is null");
-                }
+//                VzrRequestFragment vzrRequestFragment = new VzrRequestFragment();
+//
+//                if (getActivity() != null) {
+//                    requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, vzrRequestFragment).addToBackStack(null).commit();
+//                    Log.d(TAG, "Fragment replaced successfully");
+//                } else {
+//                    Log.e(TAG, "Activity is null");
+//                }
+                NavController navController = Navigation.findNavController(v);
+                navController.navigate(R.id.action_requestOptionFragment_to_vzrRequestFragment);
             }
         });
         btn_dms.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Create a new instance of SecondFragment
-                BuyDmsFragment buyDmsFragment = new BuyDmsFragment();
-
-                if (getActivity() != null) {
-                    requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, buyDmsFragment).addToBackStack(null).commit();
-                    Log.d(TAG, "Fragment replaced successfully");
-                } else {
-                    Log.e(TAG, "Activity is null");
-                }
+//                BuyDmsFragment buyDmsFragment = new BuyDmsFragment();
+//
+//                if (getActivity() != null) {
+//                    requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, buyDmsFragment).addToBackStack(null).commit();
+//                    Log.d(TAG, "Fragment replaced successfully");
+//                } else {
+//                    Log.e(TAG, "Activity is null");
+//                }
+                NavController navController = Navigation.findNavController(v);
+                navController.navigate(R.id.action_requestOptionFragment_to_vzrRequestFragment);
             }
         });
         btn_cargo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Create a new instance of SecondFragment
-                CargoRequestFragment cargoRequestFragment = new CargoRequestFragment();
-
-                if (getActivity() != null) {
-                    requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, cargoRequestFragment).addToBackStack(null).commit();
-                    Log.d(TAG, "Fragment replaced successfully");
-                } else {
-                    Log.e(TAG, "Activity is null");
-                }
+//                CargoRequestFragment cargoRequestFragment = new CargoRequestFragment();
+//
+//                if (getActivity() != null) {
+//                    requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, cargoRequestFragment).addToBackStack(null).commit();
+//                    Log.d(TAG, "Fragment replaced successfully");
+//                } else {
+//                    Log.e(TAG, "Activity is null");
+//                }
+                NavController navController = Navigation.findNavController(v);
+                navController.navigate(R.id.action_requestOptionFragment_to_cargoRequestFragment);
             }
         });
         btn_auto_insurance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Create a new instance of SecondFragment
-                CargoRequestFragment cargoRequestFragment = new CargoRequestFragment();
-
-                if (getActivity() != null) {
-                    requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, cargoRequestFragment).addToBackStack(null).commit();
-                    Log.d(TAG, "Fragment replaced successfully");
-                } else {
-                    Log.e(TAG, "Activity is null");
-                }
+//                CargoRequestFragment cargoRequestFragment = new CargoRequestFragment();
+//
+//                if (getActivity() != null) {
+//                    requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, cargoRequestFragment).addToBackStack(null).commit();
+//                    Log.d(TAG, "Fragment replaced successfully");
+//                } else {
+//                    Log.e(TAG, "Activity is null");
+//                }
+                NavController navController = Navigation.findNavController(v);
+                navController.navigate(R.id.action_requestOptionFragment_to_autoRequestFragment);
             }
         });
 

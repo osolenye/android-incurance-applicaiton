@@ -3,6 +3,8 @@ package com.example.finalproject.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -50,6 +52,7 @@ public class RegTwoFragment extends Fragment {
 
     private EditText firstNameEditText, lastNameEditText, placeOfBirthEditText, dateOfBirthEditText, passportNumberEditText, issueDateEditText, expiryDateEditText, accountNumberEditText, registrationAddressEditText, residentialAddressEditText;
 
+    NavController navController;
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -107,6 +110,7 @@ public class RegTwoFragment extends Fragment {
         view.findViewById(R.id.btn_reg_two_submit).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                navController = Navigation.findNavController(v);
                 readDataAndSendToServer();
             }
         });
@@ -141,16 +145,17 @@ public class RegTwoFragment extends Fragment {
                 if (response.isSuccessful()) {
                     // Request successful
                     Toast.makeText(getContext(), "Data sent successfully", Toast.LENGTH_SHORT).show();
-                    AuthFragment authFragment = new AuthFragment();
-                    if (getActivity() != null) {
-                        requireActivity().getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.container, authFragment)
-                                .addToBackStack(null)
-                                .commit();
-                        Log.d(TAG, "Fragment replaced successfully");
-                    } else {
-                        Log.e(TAG, "Activity is null");
-                    }
+//                    AuthFragment authFragment = new AuthFragment();
+//                    if (getActivity() != null) {
+//                        requireActivity().getSupportFragmentManager().beginTransaction()
+//                                .replace(R.id.container, authFragment)
+//                                .addToBackStack(null)
+//                                .commit();
+//                        Log.d(TAG, "Fragment replaced successfully");
+//                    } else {
+//                        Log.e(TAG, "Activity is null");
+//                    }
+                    navController.navigate(R.id.action_regTwoFragment_to_authFragment);
                 } else {
                     // Request failed
                     try {

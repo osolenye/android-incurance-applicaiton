@@ -4,6 +4,8 @@ package com.example.finalproject.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -47,6 +49,7 @@ public class RegOneFragment extends Fragment {
     private HashMap<String, String> userData;
     private EditText organizationName, okpoCode, registrationNumber, leaderName, leaderPosition, representativeName, legalAddress, actualAddress;
 
+    NavController navController;
 
 
     /**
@@ -129,10 +132,11 @@ public class RegOneFragment extends Fragment {
                         userData.get("password1"),
                         userData.get("accountNumber")
                 );
+                navController = Navigation.findNavController(v);
+
                 sendYurUserToServer(yurUser);
             }
         });
-
 
 
         return view;
@@ -148,16 +152,17 @@ public class RegOneFragment extends Fragment {
                 if (response.isSuccessful()) {
                     // Request successful
                     Toast.makeText(getContext(), "Data sent successfully", Toast.LENGTH_SHORT).show();
-                    AuthFragment authFragment = new AuthFragment();
-                    if (getActivity() != null) {
-                        requireActivity().getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.container, authFragment)
-                                .addToBackStack(null)
-                                .commit();
-                        Log.d(TAG, "Fragment replaced successfully");
-                    } else {
-                        Log.e(TAG, "Activity is null");
-                    }
+//                    AuthFragment authFragment = new AuthFragment();
+//                    if (getActivity() != null) {
+//                        requireActivity().getSupportFragmentManager().beginTransaction()
+//                                .replace(R.id.container, authFragment)
+//                                .addToBackStack(null)
+//                                .commit();
+//                        Log.d(TAG, "Fragment replaced successfully");
+//                    } else {
+//                        Log.e(TAG, "Activity is null");
+//                    }
+                    navController.navigate(R.id.action_regOneFragment_to_authFragment);
                 } else {
                     // Request failed
                     Toast.makeText(getContext(), response.toString(), Toast.LENGTH_SHORT).show();

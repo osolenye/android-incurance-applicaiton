@@ -3,6 +3,8 @@ package com.example.finalproject.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -43,6 +45,7 @@ public class LoginFragment extends Fragment {
         // Required empty public constructor
     }
 
+
     public static LoginFragment newInstance(String param1, String param2) {
         LoginFragment fragment = new LoginFragment();
         Bundle args = new Bundle();
@@ -76,7 +79,66 @@ public class LoginFragment extends Fragment {
         view.findViewById(R.id.btn_login_submit).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                createUser();
+//                createUser();
+                String email = emailEditText != null ? emailEditText.getText().toString() : "";
+                String inn = innEditText != null ? innEditText.getText().toString() : "";
+                String userName = userNameEditText != null ? userNameEditText.getText().toString() : "";
+                String password1 = passwordEditText1 != null ? passwordEditText1.getText().toString() : "";
+                String password2 = passwordEditText2 != null ? passwordEditText2.getText().toString() : "";
+                String accountNumber = accountNumberEditText != null ? accountNumberEditText.getText().toString() : "";
+
+                if (password1.equals(password2)) {
+                    HashMap<String, String> userDataMap = new HashMap<>();
+                    userDataMap.put("email", email);
+                    userDataMap.put("inn", inn);
+                    userDataMap.put("userName", userName);
+                    userDataMap.put("password1", password1);
+                    userDataMap.put("password2", password2);
+                    userDataMap.put("accountNumber", accountNumber);
+
+                    UserData userData = new UserData(userDataMap);
+
+                    if (!inn.isEmpty() && inn.charAt(0) == '0') {
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable("userData", userData);
+
+//                RegOneFragment regOneFragment = new RegOneFragment();
+//                regOneFragment.setArguments(bundle);
+//
+//                if (getActivity() != null) {
+//                    requireActivity().getSupportFragmentManager().beginTransaction()
+//                            .replace(R.id.container, regOneFragment)
+//                            .addToBackStack(null)
+//                            .commit();
+//                    Log.d(TAG, "Fragment replaced successfully");
+//                } else {
+//                    Log.e(TAG, "Activity is null");
+//                }
+                        NavController navController = Navigation.findNavController(v);
+                        navController.navigate(R.id.action_loginFragment_to_regOneFragment, bundle);
+                    } else {
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable("userData", userData);
+
+//                        RegTwoFragment regTwoFragment = new RegTwoFragment();
+//                        regTwoFragment.setArguments(bundle);
+//
+//                        if (getActivity() != null) {
+//                            requireActivity().getSupportFragmentManager().beginTransaction()
+//                                    .replace(R.id.container, regTwoFragment)
+//                                    .addToBackStack(null)
+//                                    .commit();
+//                            Log.d(TAG, "Fragment replaced successfully");
+//                        } else {
+//                            Log.e(TAG, "Activity is null");
+//                        }
+                        NavController navController = Navigation.findNavController(v);
+                        navController.navigate(R.id.action_loginFragment_to_regTwoFragment, bundle);
+                    }
+                } else {
+                    Log.e(TAG, "Passwords do not match");
+                    Toast.makeText(getContext(), "Passwords do not match", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -85,14 +147,16 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // Create a new instance of SecondFragment
-                AuthFragment authFragment = new AuthFragment();
-
-                if (getActivity() != null) {
-                    requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, authFragment).addToBackStack(null).commit();
-                    Log.d(TAG, "Fragment replaced successfully");
-                } else {
-                    Log.e(TAG, "Activity is null");
-                }
+//                AuthFragment authFragment = new AuthFragment();
+//
+//                if (getActivity() != null) {
+//                    requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, authFragment).addToBackStack(null).commit();
+//                    Log.d(TAG, "Fragment replaced successfully");
+//                } else {
+//                    Log.e(TAG, "Activity is null");
+//                }
+                NavController navController = Navigation.findNavController(v);
+                navController.navigate(R.id.action_loginFragment_to_authFragment);
             }
         });
         return view;
@@ -100,61 +164,63 @@ public class LoginFragment extends Fragment {
 
     }
 
-    private void createUser() {
-        String email = emailEditText != null ? emailEditText.getText().toString() : "";
-        String inn = innEditText != null ? innEditText.getText().toString() : "";
-        String userName = userNameEditText != null ? userNameEditText.getText().toString() : "";
-        String password1 = passwordEditText1 != null ? passwordEditText1.getText().toString() : "";
-        String password2 = passwordEditText2 != null ? passwordEditText2.getText().toString() : "";
-        String accountNumber = accountNumberEditText != null ? accountNumberEditText.getText().toString() : "";
-
-        if (password1.equals(password2)) {
-            HashMap<String, String> userDataMap = new HashMap<>();
-            userDataMap.put("email", email);
-            userDataMap.put("inn", inn);
-            userDataMap.put("userName", userName);
-            userDataMap.put("password1", password1);
-            userDataMap.put("password2", password2);
-            userDataMap.put("accountNumber", accountNumber);
-
-            UserData userData = new UserData(userDataMap);
-
-            if (!inn.isEmpty() && inn.charAt(0) == '0') {
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("userData", userData);
-
-                RegOneFragment regOneFragment = new RegOneFragment();
-                regOneFragment.setArguments(bundle);
-
-                if (getActivity() != null) {
-                    requireActivity().getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.container, regOneFragment)
-                            .addToBackStack(null)
-                            .commit();
-                    Log.d(TAG, "Fragment replaced successfully");
-                } else {
-                    Log.e(TAG, "Activity is null");
-                }
-            } else {
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("userData", userData);
-
-                RegTwoFragment regTwoFragment = new RegTwoFragment();
-                regTwoFragment.setArguments(bundle);
-
-                if (getActivity() != null) {
-                    requireActivity().getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.container, regTwoFragment)
-                            .addToBackStack(null)
-                            .commit();
-                    Log.d(TAG, "Fragment replaced successfully");
-                } else {
-                    Log.e(TAG, "Activity is null");
-                }
-            }
-        } else {
-            Log.e(TAG, "Passwords do not match");
-            Toast.makeText(getContext(), "Passwords do not match", Toast.LENGTH_SHORT).show();
-        }
-    }
+//    private void createUser() {
+//        String email = emailEditText != null ? emailEditText.getText().toString() : "";
+//        String inn = innEditText != null ? innEditText.getText().toString() : "";
+//        String userName = userNameEditText != null ? userNameEditText.getText().toString() : "";
+//        String password1 = passwordEditText1 != null ? passwordEditText1.getText().toString() : "";
+//        String password2 = passwordEditText2 != null ? passwordEditText2.getText().toString() : "";
+//        String accountNumber = accountNumberEditText != null ? accountNumberEditText.getText().toString() : "";
+//
+//        if (password1.equals(password2)) {
+//            HashMap<String, String> userDataMap = new HashMap<>();
+//            userDataMap.put("email", email);
+//            userDataMap.put("inn", inn);
+//            userDataMap.put("userName", userName);
+//            userDataMap.put("password1", password1);
+//            userDataMap.put("password2", password2);
+//            userDataMap.put("accountNumber", accountNumber);
+//
+//            UserData userData = new UserData(userDataMap);
+//
+//            if (!inn.isEmpty() && inn.charAt(0) == '0') {
+//                Bundle bundle = new Bundle();
+//                bundle.putSerializable("userData", userData);
+//
+////                RegOneFragment regOneFragment = new RegOneFragment();
+////                regOneFragment.setArguments(bundle);
+////
+////                if (getActivity() != null) {
+////                    requireActivity().getSupportFragmentManager().beginTransaction()
+////                            .replace(R.id.container, regOneFragment)
+////                            .addToBackStack(null)
+////                            .commit();
+////                    Log.d(TAG, "Fragment replaced successfully");
+////                } else {
+////                    Log.e(TAG, "Activity is null");
+////                }
+//                NavController navController = Navigation.findNavController(v);
+//                navController.navigate(R.id.action_requestOptionFragment_to_cargoRequestFragment);
+//            } else {
+//                Bundle bundle = new Bundle();
+//                bundle.putSerializable("userData", userData);
+//
+//                RegTwoFragment regTwoFragment = new RegTwoFragment();
+//                regTwoFragment.setArguments(bundle);
+//
+//                if (getActivity() != null) {
+//                    requireActivity().getSupportFragmentManager().beginTransaction()
+//                            .replace(R.id.container, regTwoFragment)
+//                            .addToBackStack(null)
+//                            .commit();
+//                    Log.d(TAG, "Fragment replaced successfully");
+//                } else {
+//                    Log.e(TAG, "Activity is null");
+//                }
+//            }
+//        } else {
+//            Log.e(TAG, "Passwords do not match");
+//            Toast.makeText(getContext(), "Passwords do not match", Toast.LENGTH_SHORT).show();
+//        }
+//    }
 }
