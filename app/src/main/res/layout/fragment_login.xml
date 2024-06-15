@@ -91,4 +91,12 @@
         android:id="@+id/btn_login_submit"
         android:text="Далее" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_login_auth"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_yellow"
+        android:text="Войти" />
+
 </LinearLayout>

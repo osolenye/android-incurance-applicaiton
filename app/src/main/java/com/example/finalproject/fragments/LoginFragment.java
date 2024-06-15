@@ -79,7 +79,25 @@ public class LoginFragment extends Fragment {
                 createUser();
             }
         });
+
+
+        view.findViewById(R.id.btn_login_auth).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create a new instance of SecondFragment
+                AuthFragment authFragment = new AuthFragment();
+
+                if (getActivity() != null) {
+                    requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, authFragment).addToBackStack(null).commit();
+                    Log.d(TAG, "Fragment replaced successfully");
+                } else {
+                    Log.e(TAG, "Activity is null");
+                }
+            }
+        });
         return view;
+
+
     }
 
     private void createUser() {
