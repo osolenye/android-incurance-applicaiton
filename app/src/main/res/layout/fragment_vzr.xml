@@ -37,7 +37,7 @@
             android:layout_marginTop="32dp"
             >
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/vzr_start_date"
                 android:layout_width="144dp"
                 android:layout_height="36dp"
                 android:background="@drawable/profile_info_background"
@@ -47,7 +47,7 @@
                 />
 
             <EditText
-                android:id="@+id/editText3"
+                android:id="@+id/vzr_end_date"
                 android:layout_width="144dp"
                 android:layout_height="36dp"
                 android:background="@drawable/profile_info_background"
@@ -94,6 +94,7 @@
             android:layout_height="32dp"
             android:background="@drawable/button_yellow"
             android:text="Далее"
+            android:id="@+id/vzr_button_submit"
             android:textColor="@color/black"
             android:layout_gravity="center"
             android:layout_marginTop="250dp"

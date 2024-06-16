@@ -8,9 +8,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.finalproject.R;
+import com.example.finalproject.models.CargoPolicy;
+import com.example.finalproject.models.TravelPolicy;
+import com.example.finalproject.network.ApiService;
+import com.example.finalproject.network.RetrofitClient;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -82,6 +92,59 @@ public class VzrFragment extends Fragment {
         ArrayAdapter<String> adapter1 = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_item, territories);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerTerritory.setAdapter(adapter1);
+
+
+
+        view.findViewById(R.id.vzr_button_submit).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText et_start_date = view.findViewById(R.id.vzr_start_date);
+                EditText et_end_date = view.findViewById(R.id.vzr_end_date);
+                Spinner spinner_territory = view.findViewById(R.id.spinner_territory);
+
+                String start_date = et_start_date.getText().toString();
+                String end_date = et_end_date.getText().toString();
+                String territory = spinner_territory.getSelectedItem().toString();
+
+
+                TravelPolicy travelPolicy = new TravelPolicy(start_date, end_date, territory);
+                sendVzr(travelPolicy);
+            }
+        });
         return view;
+    }
+
+
+    private void sendVzr(TravelPolicy travelPolicy) {
+        ApiService apiService = RetrofitClient.getClient().create(ApiService.class);
+        Call<Void> call = apiService.travelPolicies("Bearer " + AuthFragment.accessToken, travelPolicy);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if (response.isSuccessful()) {
+                    // Request successful
+                    Toast.makeText(getContext(), "Data sent successfully", Toast.LENGTH_SHORT).show();
+//                    AuthFragment authFragment = new AuthFragment();
+//                    if (getActivity() != null) {
+//                        requireActivity().getSupportFragmentManager().beginTransaction()
+//                                .replace(R.id.container, authFragment)
+//                                .addToBackStack(null)
+//                                .commit();
+//                        Log.d(TAG, "Fragment replaced successfully");
+//                    } else {
+//                        Log.e(TAG, "Activity is null");
+//                    }
+                } else {
+                    // Request failed
+                    Toast.makeText(getContext(), response.toString(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                // Network error
+                Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }

@@ -2,11 +2,13 @@ package com.example.finalproject.network;
 
 import com.example.finalproject.models.AccidentPolicy;
 import com.example.finalproject.models.AutoPolicy;
+import com.example.finalproject.models.CargoPolicy;
 import com.example.finalproject.models.DmsPolicy;
 import com.example.finalproject.models.Login;
 import com.example.finalproject.models.Person;
 import com.example.finalproject.models.Policy;
 import com.example.finalproject.models.Token;
+import com.example.finalproject.models.TravelPolicy;
 import com.example.finalproject.models.YurUser;
 
 
@@ -42,4 +44,11 @@ public interface ApiService {
 
     @POST("health_policies/")
     Call<Void> health_policies(@Header("Authorization") String token, @Body DmsPolicy dmsPolicy);
+
+    @POST("cargo_policies/")
+    Call<Void> cargoPolicies(@Header("Authorization") String token, @Body CargoPolicy cargoPolicy);
+
+
+    @POST("travel_policies/")
+    Call<Void> travelPolicies(@Header("Authorization") String token, @Body TravelPolicy travelPolicy);
 }

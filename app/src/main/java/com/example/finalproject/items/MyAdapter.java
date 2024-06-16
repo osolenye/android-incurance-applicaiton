@@ -47,7 +47,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         // Предположим, что dataSet содержит данные для каждого TextView
         holder.textView1.setText(dataSet.get(position).get("id").toString());
-        holder.textView2.setText(dataSet.get(position).get("name").toString());
+        holder.textView2.setText(dataSet.get(position).get("industry").toString());
         holder.textView3.setText(dataSet.get(position).get("start_date").toString());
         holder.textView4.setText(dataSet.get(position).get("end_date").toString());
     }
