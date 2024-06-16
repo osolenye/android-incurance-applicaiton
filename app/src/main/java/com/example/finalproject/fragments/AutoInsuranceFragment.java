@@ -8,9 +8,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.finalproject.R;
+import com.example.finalproject.models.AccidentPolicy;
+import com.example.finalproject.models.AutoPolicy;
+import com.example.finalproject.network.ApiService;
+import com.example.finalproject.network.RetrofitClient;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -73,6 +83,63 @@ public class AutoInsuranceFragment extends Fragment {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerAllowedDrivers.setAdapter(adapter);
 
+
+        view.findViewById(R.id.btn_auto_insurance_submit).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText et_start_date = view.findViewById(R.id.start_date);    
+                EditText et_end_date = view.findViewById(R.id.end_date);
+                EditText et_auto_mark = view.findViewById(R.id.auto_mark);
+                EditText et_auto_model = view.findViewById(R.id.auto_model);
+                EditText et_car_release = view.findViewById(R.id.car_release);
+                EditText et_travel_country = view.findViewById(R.id.travel_country);
+
+
+                String start_date = et_start_date.getText().toString();
+                String end_date = et_end_date.getText().toString();
+                String auto_mark = et_auto_mark.getText().toString();
+                String auto_model = et_auto_model.getText().toString();
+                String car_release = et_car_release.getText().toString();
+                String travel_country = et_travel_country.getText().toString();
+
+                AutoPolicy autoPolicy = new AutoPolicy(auto_mark, auto_model, car_release, start_date, end_date, travel_country);
+                sendAutoPolicy(autoPolicy);
+            }
+        });
+
         return view;
+    }
+
+    private void sendAutoPolicy(AutoPolicy autoPolicy) {
+        ApiService apiService = RetrofitClient.getClient().create(ApiService.class);
+        Call<Void> call = apiService.autoPolicies("Bearer " + AuthFragment.accessToken, autoPolicy);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if (response.isSuccessful()) {
+                    // Request successful
+                    Toast.makeText(getContext(), "Data sent successfully", Toast.LENGTH_SHORT).show();
+//                    AuthFragment authFragment = new AuthFragment();
+//                    if (getActivity() != null) {
+//                        requireActivity().getSupportFragmentManager().beginTransaction()
+//                                .replace(R.id.container, authFragment)
+//                                .addToBackStack(null)
+//                                .commit();
+//                        Log.d(TAG, "Fragment replaced successfully");
+//                    } else {
+//                        Log.e(TAG, "Activity is null");
+//                    }
+                } else {
+                    // Request failed
+                    Toast.makeText(getContext(), response.toString(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                // Network error
+                Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }

@@ -1,5 +1,6 @@
 package com.example.finalproject.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,9 +9,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.finalproject.R;
+import com.example.finalproject.models.AccidentPolicy;
+import com.example.finalproject.models.DmsPolicy;
+import com.example.finalproject.network.ApiService;
+import com.example.finalproject.network.RetrofitClient;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -74,6 +85,68 @@ public class BuyDmsFragment extends Fragment {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         tariffSpinner.setAdapter(adapter);
 
+
+        view.findViewById(R.id.btn_buy_dms_submit).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText et_start_date = view.findViewById(R.id.start_date);
+                EditText et_end_date = view.findViewById(R.id.end_date);
+
+                String start_date = et_start_date.getText().toString();
+                String end_date = et_end_date.getText().toString();
+
+                DmsPolicy dmsPolicy = new DmsPolicy(start_date, end_date);
+                sendHealthPolicy(dmsPolicy);
+            }
+        });
+
+        view.findViewById(R.id.btn_load_excel).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+                intent.addCategory(Intent.CATEGORY_OPENABLE);
+                intent.setType("pdf/*");
+
+                startActivityForResult(intent, 1);
+            }
+        });
+
+
+
         return view;
+    }
+
+
+    private void sendHealthPolicy(DmsPolicy dmsPolicy) {
+        ApiService apiService = RetrofitClient.getClient().create(ApiService.class);
+        Call<Void> call = apiService.health_policies("Bearer " + AuthFragment.accessToken, dmsPolicy);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if (response.isSuccessful()) {
+                    // Request successful
+                    Toast.makeText(getContext(), "Data sent successfully", Toast.LENGTH_SHORT).show();
+//                    AuthFragment authFragment = new AuthFragment();
+//                    if (getActivity() != null) {
+//                        requireActivity().getSupportFragmentManager().beginTransaction()
+//                                .replace(R.id.container, authFragment)
+//                                .addToBackStack(null)
+//                                .commit();
+//                        Log.d(TAG, "Fragment replaced successfully");
+//                    } else {
+//                        Log.e(TAG, "Activity is null");
+//                    }
+                } else {
+                    // Request failed
+                    Toast.makeText(getContext(), response.toString(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                // Network error
+                Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }

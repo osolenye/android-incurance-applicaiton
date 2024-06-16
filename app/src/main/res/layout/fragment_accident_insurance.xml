@@ -34,12 +34,16 @@
             <EditText
                 android:layout_width="144dp"
                 android:layout_height="36dp"
+                android:id="@+id/accident_date_begin"
                 android:background="@drawable/rounded_corner"
+                android:inputType="date"
                 android:hint="Дата начала" />
 
             <EditText
                 android:layout_width="144dp"
                 android:layout_height="36dp"
+                android:inputType="date"
+                android:id="@+id/accident_date_end"
                 android:background="@drawable/rounded_corner"
                 android:layout_marginLeft="10dp"
                 android:hint="Дата конца" />
@@ -49,11 +53,12 @@
             android:layout_height="36dp"
             android:background="@drawable/rounded_corner"
             android:layout_marginTop="10dp"
-            android:hint="Модель" />
+            android:id="@+id/accident_travel_country"
+            android:hint="Территория страхования" />
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Груз новый"
+            android:text="Застрахованы ли в других странах"
             android:textColor="@color/white" />
 
 
@@ -62,6 +67,7 @@
             android:layout_height="32dp"
             android:layout_gravity="center"
             android:background="@drawable/button_yellow"
+            android:id="@+id/btn_create_accident_policy"
             android:text="Далее"
             android:textColor="@color/black" />
     </LinearLayout>

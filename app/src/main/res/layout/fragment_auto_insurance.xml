@@ -43,6 +43,7 @@
             android:layout_width="296dp"
             android:layout_height="36dp"
             android:background="@drawable/rounded_corner"
+            android:id="@+id/auto_mark"
             android:hint="Марка"
             />
 
@@ -52,6 +53,7 @@
             android:layout_height="36dp"
             android:background="@drawable/rounded_corner"
             android:hint="Модель"
+            android:id="@+id/auto_model"
             android:layout_marginTop="10dp"
             />
 
@@ -61,6 +63,8 @@
             android:background="@drawable/rounded_corner"
             android:layout_marginTop="10dp"
             android:hint="Год выпуска"
+            android:inputType="date"
+            android:id="@+id/car_release"
             />
 
 
@@ -75,13 +79,17 @@
                 android:layout_width="144dp"
                 android:layout_height="36dp"
                 android:background="@drawable/rounded_corner"
+                android:id="@+id/start_date"
+                android:inputType="date"
                 android:hint="Дата начала"
                 />
             <EditText
                 android:layout_width="144dp"
                 android:layout_height="36dp"
+                android:id="@+id/end_date"
                 android:background="@drawable/rounded_corner"
                 android:hint="Дата конца"
+                android:inputType="date"
                 android:layout_marginLeft="10dp"
                 />
         </LinearLayout>
@@ -100,6 +108,7 @@
             android:layout_width="296dp"
             android:layout_height="36dp"
             android:background="@drawable/rounded_corner"
+            android:id="@+id/travel_country"
             android:hint="Терротрия страхования"
             android:layout_marginTop="10dp"
             />
@@ -110,6 +119,7 @@
             android:background="@drawable/button_yellow"
             android:text="Далее"
             android:textColor="@color/black"
+            android:id="@+id/btn_auto_insurance_submit"
             android:layout_gravity="center"
             android:layout_marginTop="250dp"
             />

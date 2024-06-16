@@ -191,7 +191,7 @@ public class ProfileFragment extends Fragment {
 
     private void getProfileData(String accessToken) {
         ApiService apiService = RetrofitClient.getClient().create(ApiService.class);
-        Call<Map<String, Object>> call = apiService.getProfile("Bearer " + accessToken);
+        Call<Map<String, Object>> call = apiService.getProfile("Bearer " + AuthFragment.accessToken);
         call.enqueue(new Callback<Map<String, Object>>() {
             @Override
             public void onResponse(Call<Map<String, Object>> call, Response<Map<String, Object>> response) {

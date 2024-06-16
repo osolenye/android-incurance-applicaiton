@@ -1,7 +1,11 @@
 package com.example.finalproject.network;
 
+import com.example.finalproject.models.AccidentPolicy;
+import com.example.finalproject.models.AutoPolicy;
+import com.example.finalproject.models.DmsPolicy;
 import com.example.finalproject.models.Login;
 import com.example.finalproject.models.Person;
+import com.example.finalproject.models.Policy;
 import com.example.finalproject.models.Token;
 import com.example.finalproject.models.YurUser;
 
@@ -26,4 +30,16 @@ public interface ApiService {
 
     @GET("profile/")
     Call<Map<String, Object>> getProfile(@Header("Authorization") String token);
+
+
+    @POST("accident_policies/")
+    Call<Void> accidentPolicies(@Header("Authorization") String token, @Body AccidentPolicy accidentPolicy);
+
+    @POST("auto_policies/")
+    Call<Void> autoPolicies(@Header("Authorization") String token, @Body AutoPolicy autoPolicy);
+
+
+
+    @POST("health_policies/")
+    Call<Void> health_policies(@Header("Authorization") String token, @Body DmsPolicy dmsPolicy);
 }

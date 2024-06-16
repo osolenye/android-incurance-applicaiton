@@ -32,6 +32,7 @@ import retrofit2.Response;
  */
 public class AuthFragment extends Fragment {
     private static final String TAG = "auth fragment";
+    public static String accessToken;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -113,6 +114,7 @@ public class AuthFragment extends Fragment {
                 if (response.isSuccessful()) {
                     // Request successful
                     Token token = response.body();
+                    accessToken = token.getAccessToken();
                     Toast.makeText(getContext(), "success! " + token.getAccessToken(), Toast.LENGTH_SHORT).show();
 
                     Bundle bundle = new Bundle();
