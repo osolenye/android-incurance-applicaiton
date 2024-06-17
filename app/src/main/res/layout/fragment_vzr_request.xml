@@ -39,6 +39,7 @@
             android:layout_height="36dp"
             android:background="@drawable/rounded_corner"
             android:layout_marginTop="10dp"
+            android:id="@+id/vzr_request_summ"
             android:hint="Сумма выплат" />
 
 
@@ -61,6 +62,7 @@
                 android:layout_height="28dp"
                 android:background="@drawable/button_file_upload"
                 android:layout_marginLeft="8dp"
+                android:id="@+id/vzr_request_med_docs"
                 />
         </LinearLayout>
 
@@ -82,6 +84,7 @@
                 android:layout_width="36dp"
                 android:layout_height="28dp"
                 android:background="@drawable/button_file_upload"
+                android:id="@+id/vzr_request_travel_docs"
                 android:layout_marginLeft="8dp"
                 />
         </LinearLayout>
@@ -103,6 +106,7 @@
                 android:layout_width="36dp"
                 android:layout_height="28dp"
                 android:background="@drawable/button_file_upload"
+                android:id="@+id/vzr_request_checks"
                 android:layout_marginLeft="8dp"
                 />
         </LinearLayout>
@@ -112,6 +116,7 @@
             android:layout_height="32dp"
             android:layout_gravity="center"
             android:background="@drawable/button_yellow"
+            android:id="@+id/btn_vzr_request_submit"
             android:text="Далее"
             android:layout_marginTop="10dp"
             android:textColor="@color/black" />

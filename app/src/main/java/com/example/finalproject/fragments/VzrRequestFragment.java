@@ -1,12 +1,18 @@
 package com.example.finalproject.fragments;
 
+import static android.app.Activity.RESULT_OK;
+
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import com.example.finalproject.R;
 
@@ -29,6 +35,8 @@ public class VzrRequestFragment extends Fragment {
     public VzrRequestFragment() {
         // Required empty public constructor
     }
+    private static final int REQUEST_CODE_OPEN_DOCUMENT = 1;
+
 
     /**
      * Use this factory method to create a new instance of
@@ -61,6 +69,22 @@ public class VzrRequestFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_vzr_request, container, false);
+        View view = inflater.inflate(R.layout.fragment_vzr_request, container, false);
+
+        view.findViewById(R.id.btn_vzr_request_submit).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText et_summ = view.findViewById(R.id.vzr_request_summ);
+            }
+        });
+
+
+        view.findViewById(R.id.vzr_request_med_docs).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        return view;
     }
 }
