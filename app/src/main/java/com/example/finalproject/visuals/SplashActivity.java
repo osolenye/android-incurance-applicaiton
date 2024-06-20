@@ -11,7 +11,7 @@ import com.example.finalproject.MainActivity;
 import com.example.finalproject.R;
 
 public class SplashActivity extends AppCompatActivity {
-    private static final int SPLASH_DISPLAY_LENGTH = 4000; // Время отображения splash screen в миллисекундах
+    private static final int SPLASH_DISPLAY_LENGTH = 4; // Время отображения splash screen в миллисекундах
     private MediaPlayer mediaPlayer;
 
 

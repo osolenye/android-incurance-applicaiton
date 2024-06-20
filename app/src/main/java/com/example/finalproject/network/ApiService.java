@@ -7,6 +7,7 @@ import com.example.finalproject.models.DmsPolicy;
 import com.example.finalproject.models.Login;
 import com.example.finalproject.models.Person;
 import com.example.finalproject.models.Policy;
+import com.example.finalproject.models.Request;
 import com.example.finalproject.models.Token;
 import com.example.finalproject.models.TravelPolicy;
 import com.example.finalproject.models.YurUser;
@@ -51,4 +52,8 @@ public interface ApiService {
 
     @POST("travel_policies/")
     Call<Void> travelPolicies(@Header("Authorization") String token, @Body TravelPolicy travelPolicy);
+
+
+    @POST("health_payments/")
+    Call<Void> healthPayments(@Header("Authorization") String token, @Body Request request);
 }

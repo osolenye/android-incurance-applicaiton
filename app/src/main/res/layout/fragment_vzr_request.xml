@@ -55,6 +55,7 @@
                 android:text="Мед. документы"
                 android:textAlignment="center"
                 android:gravity="center"
+                android:id="@+id/vzr_request_med_docs_text"
                 android:background="@drawable/rounded_corner"/>
 
             <androidx.appcompat.widget.AppCompatButton
@@ -78,6 +79,7 @@
                 android:text="Документы на выезд"
                 android:gravity="center"
                 android:textAlignment="center"
+                android:id="@+id/vzr_request_travel_docs_text"
                 android:background="@drawable/rounded_corner"/>
 
             <androidx.appcompat.widget.AppCompatButton
@@ -100,6 +102,7 @@
                 android:layout_height="36dp"
                 android:text="Чеки"
                 android:gravity="center"
+                android:id="@+id/vzr_request_checks_text"
                 android:background="@drawable/rounded_corner"/>
 
             <androidx.appcompat.widget.AppCompatButton

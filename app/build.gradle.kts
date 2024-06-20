@@ -61,4 +61,7 @@ dependencies {
 
     // Lottie зависимость
     implementation("com.airbnb.android:lottie:6.0.0")
+
+    // Activity dependency for handling file picker
+    implementation("androidx.activity:activity:1.2.3")
 }
