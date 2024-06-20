@@ -37,25 +37,49 @@
             android:layout_gravity="center"
             android:layout_marginTop="32dp"
             >
-            <EditText
-                android:id="@+id/start_date"
-                android:layout_width="144dp"
-                android:layout_height="36dp"
-                android:background="@drawable/profile_info_background"
-                android:ems="10"
-                android:hint="Дата начала: "
-                android:inputType="date"
-                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:text="2024-01-01"/>
+                <EditText
+                    android:id="@+id/start_date"
+                    android:layout_width="144dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/profile_info_background"
+                    android:ems="10"
+                    android:hint="Дата начала: "
+                    android:inputType="date"
+                    />
+            </LinearLayout>
 
-            <EditText
-                android:id="@+id/end_date"
-                android:layout_width="144dp"
-                android:layout_height="36dp"
-                android:background="@drawable/profile_info_background"
-                android:ems="10"
-                android:hint="Дата конца: "
-                android:inputType="date"
-                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:text="2024-01-01"/>
+                <EditText
+                    android:id="@+id/end_date"
+                    android:layout_width="144dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/profile_info_background"
+                    android:ems="10"
+                    android:hint="Дата конца: "
+                    android:inputType="date"
+                    />
+            </LinearLayout>
+
 
 
         </LinearLayout>
